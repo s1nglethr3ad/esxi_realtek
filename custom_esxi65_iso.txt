@@ -1,0 +1,8 @@
+Install-Module -Name VMware.PowerCLI
+.\ESXi-Customizer-PS.ps1 -v65 -ozip
+Add-EsxSoftwareDepot ".\net55-r8168-8.045a-napi-offline_bundle.zip", "ESXi-6.5.0-20201104001-standard.zip" 
+New-EsxImageProfile -CloneProfile ESXi-6.5.0-20201104001-standard -name ESXi-6.5.0-20201104001-standard-RTL8111 -Vendor me
+Set-EsxImageProfile ESXi-6.5.0-20201104001-standard-RTL8111 -AcceptanceLevel CommunitySupported
+Get-EsxSoftwarePackage
+Add-EsxSoftwarePackage -ImageProfile ESXi-6.5.0-20201104001-standard-RTL8111 -SoftwarePackage net55-r8168
+Export-EsxImageProfile -ImageProfile ESXi-6.5.0-20201104001-standard-RTL8111 -ExportToIso -filepath .\VMware-ESXi-6.5.0-20201104001-standard-RTL8111.iso
