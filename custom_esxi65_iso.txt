@@ -1,3 +1,4 @@
+https://vibsdepot.v-front.de/wiki/index.php/Net55-r8168
 Install-Module -Name VMware.PowerCLI
 .\ESXi-Customizer-PS.ps1 -v65 -ozip
 Add-EsxSoftwareDepot ".\net55-r8168-8.045a-napi-offline_bundle.zip", "ESXi-6.5.0-20201104001-standard.zip" 
